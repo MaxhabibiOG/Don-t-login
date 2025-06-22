@@ -1,0 +1,84 @@
+<!-- Save this as index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Savage Login</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding-top: 100px;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .menu {
+      display: none;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>😈 Welcome to Hell Portal</h1>
+  <p>Login to continue...</p>
+
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <br>
+  <button onclick="login()">Login</button>
+
+  <div class="menu" id="menu">
+    <h2>📋 Main Menu</h2>
+    <button onclick="respond(1)">Ask Anything</button>
+    <button onclick="respond(2)">Need Something</button>
+    <button onclick="respond(3)">Help</button>
+    <button onclick="respond(4)">Secret</button>
+    <button onclick="respond(5)">Exit</button>
+  </div>
+
+  <p id="response" style="margin-top: 20px; font-weight: bold;"></p>
+
+  <script>
+    const realUsername = "Eren yager and mikasa";
+    const realPassword = "Eramika";
+
+    function login() {
+      const u = document.getElementById("username").value;
+      const p = document.getElementById("password").value;
+
+      if (u === realUsername && p === realPassword) {
+        document.getElementById("menu").style.display = "block";
+        document.getElementById("response").textContent = `✅ Welcome, ${u}`;
+      } else {
+        document.getElementById("response").textContent = "❌ Login failed. Bhag ja Bhosdike.";
+      }
+    }
+
+    function respond(option) {
+      const responses = {
+        1: "Go away get some help, How are you?",
+        2: "I said go away, Freak!",
+        3: "Get some help freak, ask your partner if you need something.",
+        4: "Gu khaye ga?",
+        5: "👋 Bhag ja Bhosdike, kabhi mat ana!"
+      };
+
+      document.getElementById("response").textContent = responses[option];
+
+      if (option === 5) {
+        document.getElementById("menu").style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
